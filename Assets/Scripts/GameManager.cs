@@ -62,6 +62,7 @@ namespace ClothStore
             
             s_Instance = this;
             DontDestroyOnLoad(gameObject);
+            Application.targetFrameRate = 60;
         }
         
         void Start()
