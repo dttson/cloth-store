@@ -22,8 +22,10 @@ namespace ClothStore
 
         public enum SkinCategory
         {
-            Body, LeftHand, RightHand, LeftFoot, RightFoot
+            Body, LeftHand, RightHand, LeftFoot, RightFoot,
+            Body_B, LeftHand_B, RightHand_B, LeftFoot_B, RightFoot_B,
         }
+        
         
         public enum SkinLabel
         {

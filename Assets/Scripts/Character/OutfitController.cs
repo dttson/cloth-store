@@ -85,9 +85,12 @@ public class OutfitController : MonoBehaviour
 
     void Awake()
     {
-        _outfitChanger.updateOutfitSet(_defaultOutfit);
-
         _ownOutfitData.Add(_defaultOutfit.shirt, 1);
         _ownOutfitData.Add(_defaultOutfit.pants, 1);
+    }
+
+    void Start()
+    {
+        _outfitChanger.updateOutfitSet(_defaultOutfit);
     }
 }

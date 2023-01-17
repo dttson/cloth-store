@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D.Animation;
@@ -9,12 +10,40 @@ namespace ClothStore.Character
         [SerializeField] private SpriteResolver[] _spriteResolvers;
         [field: SerializeField] public OutfitSetData CurrentOutfit { get; private set; }
         private readonly Dictionary<string, SpriteResolver> _dictSpriteResolvers = new();
-        
-        void Awake()
+
+        private Dictionary<string, SpriteResolver> DictSpriteResolvers
         {
-            _spriteResolvers = GetComponentsInChildren<SpriteResolver>();
+            get
+            {
+                if (_dictSpriteResolvers.Count == 0)
+                {
+                    initSpriteResolvers();
+                }
+
+                return _dictSpriteResolvers;
+            }
+        }
+        
+        void Start()
+        {
+            initSpriteResolvers();
+        }
+
+        void OnValidate()
+        {
+            _spriteResolvers = GetComponentsInChildren<SpriteResolver>(true);
+        }
+
+        private void initSpriteResolvers()
+        {
+            if (_dictSpriteResolvers.Count > 0)
+            {
+                return;
+            }
+            
             foreach (var spriteResolver in _spriteResolvers)
             {
+                Debug.Log($"===== Init sprite resolver {spriteResolver.gameObject.name} | {spriteResolver.GetCategory()}");
                 _dictSpriteResolvers.Add(spriteResolver.GetCategory(), spriteResolver);
             }
         }
@@ -40,8 +69,10 @@ namespace ClothStore.Character
             {
                 var category = skinItemData.category.ToString();
                 var label = skinItemData.label.ToString();
-                var spriteResolver = _dictSpriteResolvers[category];
-                spriteResolver.SetCategoryAndLabel(category, label);
+                if (DictSpriteResolvers.TryGetValue(category, out var spriteResolver))
+                {
+                    spriteResolver.SetCategoryAndLabel(category, label);
+                }
             }
         }
     }

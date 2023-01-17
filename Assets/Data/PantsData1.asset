@@ -19,4 +19,8 @@ MonoBehaviour:
     label: 0
   - category: 4
     label: 0
+  - category: 8
+    label: 0
+  - category: 9
+    label: 0
   sprite: {fileID: -4944376025968812393, guid: 1ebd6174556c54dc2bb4cc2d8ec717b7, type: 3}

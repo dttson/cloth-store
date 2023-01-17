@@ -26,5 +26,11 @@ public class AnimationController : MonoBehaviour
         int horizontalValue = _character.MoveDirection.x > 0.001f ? 1 : _character.MoveDirection.x < -0.001f ? -1 : 0;
         _animator.SetInteger(s_Vertical, verticalValue);
         _animator.SetInteger(s_Horizontal, horizontalValue);
+        
+        //TODO: Should check x direction for horizontal moving, but for now temporarily use same animation for all move directions
+        if (verticalValue == 0)
+        {
+            _animator.SetInteger(s_Vertical, -Mathf.Abs(horizontalValue));    
+        }
     }
 }
