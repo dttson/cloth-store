@@ -34,3 +34,9 @@ This the sample simulation of the clothes stores, where the character can moving
 - There is no conversation before open shop UI
 - Sometimes user can sell the last outfit (which should not be allowed)
 - The UI layout is not good on some resolutions
+
+# Release
+- https://github.com/dttson/cloth-store/blob/45673a6b0b36e72141565dfa83bb7fc369bd8082/Release/ClothesStore_Sample.zip
+
+# Documentation (PDF)
+- https://github.com/dttson/cloth-store/blob/45673a6b0b36e72141565dfa83bb7fc369bd8082/README.pdf
