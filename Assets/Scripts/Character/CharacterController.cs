@@ -36,8 +36,10 @@ namespace ClothStore.Character
                 return;
             }
             
-            _moveDirection = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
-            _moveDirection *= _moveSpeed * Time.deltaTime;
+            _moveDirection = Vector2.zero;
+            var deltaDir = _moveSpeed * Time.deltaTime;
+            _moveDirection.x = Input.GetKey(KeyCode.D) ? deltaDir : Input.GetKey(KeyCode.A) ? -deltaDir : 0;
+            _moveDirection.y = Input.GetKey(KeyCode.W) ? deltaDir : Input.GetKey(KeyCode.S) ? -deltaDir : 0;
 
             var newPosition = transform.position;
             newPosition.x = Mathf.Clamp(newPosition.x + _moveDirection.x, xMin, xMax);
