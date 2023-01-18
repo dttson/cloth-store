@@ -36,7 +36,7 @@ This the sample simulation of the clothes stores, where the character can moving
 - The UI layout is not good on some resolutions
 
 # Release
-- https://github.com/dttson/cloth-store/blob/45673a6b0b36e72141565dfa83bb7fc369bd8082/Release/ClothesStore_Sample.zip
+- https://github.com/dttson/cloth-store/releases/tag/mvp
 
 # Documentation (PDF)
 - https://github.com/dttson/cloth-store/blob/45673a6b0b36e72141565dfa83bb7fc369bd8082/README.pdf
